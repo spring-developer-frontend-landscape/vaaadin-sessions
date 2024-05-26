@@ -20,6 +20,7 @@ public class SessionView extends VerticalLayout {
         // Title
         H1 title = new H1("Spring I/O Sessions");
 
+        // Grid
         Grid<Session> grid = new Grid<>(Session.class,false);
         grid.addColumn(Session::title)
                 .setHeader("Title");
@@ -27,6 +28,7 @@ public class SessionView extends VerticalLayout {
                 .setHeader("Speaker(s)");
         grid.addThemeVariants(GridVariant.LUMO_COMPACT);;
 
+        // get data from the repository and add it to the grid
         List<Session> sessions = repository.findAll();
         grid.setItems(sessions);
 
